@@ -53,6 +53,7 @@ body {
 
     &:hover {
         fill: #a0a0a0;
+        transform: scale(1.01);
     }
 
     &:active {
@@ -90,7 +91,7 @@ body {
         top: -4px;
         font-family: "IRANYekan";
         font-size: 16px;
-        direction: rtl; //temp
+        direction: rtl;
     }
 
     .order-container {

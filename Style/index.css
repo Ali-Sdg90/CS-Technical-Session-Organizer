@@ -99,6 +99,7 @@ body {
 }
 .arrow-btn:hover {
   fill: #a0a0a0;
+  transform: scale(1.01);
 }
 .arrow-btn:active {
   fill: #777777;
