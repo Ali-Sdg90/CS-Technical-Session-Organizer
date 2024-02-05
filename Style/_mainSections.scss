@@ -1,0 +1,85 @@
+@import "colors";
+
+.app-title {
+    text-shadow: 2.5px 0 rgba(98, 0, 255, 0.25), -2.5px 0 rgba(255, 0, 0, 0.25);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.meeting-info {
+    border: 1px solid $borders-color;
+    width: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    background: $sections-bg;
+    font-size: 18px;
+
+    .persian-text {
+        direction: rtl;
+        font-family: "IRANYekan";
+    }
+}
+
+.arrow-btn {
+    fill: #848484;
+    transition: fill 0.15s, transform 0.15s;
+    cursor: pointer;
+
+    &:hover {
+        fill: #a0a0a0;
+        transform: scale(1.01);
+    }
+
+    &:active {
+        fill: #777777;
+        transform: scale(0.98);
+    }
+}
+
+.order-section {
+    border: 1px solid $borders-color;
+    list-style-position: inside;
+    width: 871px;
+    padding: 20px;
+    border-radius: 10px;
+    background: $sections-bg;
+    font-size: 18px;
+    margin-top: 40px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26px;
+
+    .container-title {
+        margin-bottom: 20px;
+    }
+
+    .attendees-input {
+        border: 1px solid black;
+        background-color: $inputs-bg;
+        color: white;
+        padding: 0px 10px 3px;
+        border-radius: 5px;
+        position: relative;
+        top: -4px;
+        font-family: "IRANYekan";
+        font-size: 16px;
+        direction: ltr;
+    }
+
+    .order-container {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        .attendees-list,
+        .order-list {
+            display: inline-block;
+        }
+    }
+}
