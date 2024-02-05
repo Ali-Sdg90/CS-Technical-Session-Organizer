@@ -17,11 +17,6 @@ body {
     justify-content: flex-start;
     align-items: center;
     user-select: none;
-
-    // TEMP for M.C.S.C.
-    transform: scale(1);
-    transform-origin: top;
-    // TEMP for M.C.S.C.
 }
 
 .app-title {
@@ -105,4 +100,10 @@ body {
             display: inline-block;
         }
     }
+}
+
+.custom-scale-div {
+    transform: scale(0.975);
+    transform-origin: top;
+    display: none;
 }
