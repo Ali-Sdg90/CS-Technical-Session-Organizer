@@ -2,13 +2,9 @@
 const setDirs = document.querySelectorAll(".set-dir");
 const submitBtn = document.querySelector(".arrow-btn");
 const orderList = document.querySelector(".order-list");
+const demoNames = document.querySelector(".add-demo-names");
 const inputNames = document.querySelectorAll(".input-name");
-const outputNames = document.querySelectorAll(".output-name");
 let ListOfNames = [];
-inputNames[0].value = "1";
-inputNames[1].value = "2";
-inputNames[2].value = "3";
-inputNames[3].value = "4";
 const changeDir = (HTMLValue) => {
     if (/^[a-zA-Z]/.test(HTMLValue.value)) {
         HTMLValue.style.direction = "ltr";
@@ -25,27 +21,6 @@ setDirs.forEach((setDir) => {
         changeDir(inputValue);
     });
 });
-const shuffleArray = (array) => {
-    const elementsArray = Array.from(array);
-    console.log(array);
-    console.log(elementsArray);
-    for (let i = elementsArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [elementsArray[i], elementsArray[j]] = [
-            elementsArray[j],
-            elementsArray[i],
-        ];
-    }
-    console.log(elementsArray);
-    orderList.innerHTML = "";
-    for (let i = 0; i < 4; i++) {
-        console.log(elementsArray[i]);
-        const liElement = document.createElement("li");
-        liElement.classList.add(`li-n${i}`);
-        liElement.appendChild(elementsArray[i]);
-        orderList.appendChild(liElement);
-    }
-};
 const changePosition = (nameCounter) => {
     const allLis = orderList.querySelectorAll("li");
     console.log(allLis);
@@ -53,12 +28,49 @@ const changePosition = (nameCounter) => {
     orderList.appendChild(allLis[randomNumber]);
 };
 const elements = document.querySelectorAll(".my-elements");
-submitBtn?.addEventListener("click", () => {
+const resetOrderList = () => {
+    orderList.innerHTML = `
+    <li class="li-n1">
+        <input
+            type="text"
+            class="attendees-input output-name set-dir"
+            disabled
+        />
+    </li>
+    <li class="li-n2">
+        <input
+            type="text"
+            class="attendees-input output-name set-dir"
+            disabled
+        />
+    </li>
+    <li class="li-n3">
+        <input
+            type="text"
+            class="attendees-input output-name set-dir"
+            disabled
+        />
+    </li>
+    <li class="li-n4">
+        <input
+            type="text"
+            class="attendees-input output-name set-dir"
+            disabled
+        />
+    </li>
+    `;
+    console.log("RESET");
+};
+const submitActions = () => { };
+submitBtn.addEventListener("click", () => {
+    if (orderList.querySelectorAll(".output-name").length !== 4) {
+        resetOrderList();
+    }
+    const outputNames = document.querySelectorAll(".output-name");
     inputNames.forEach((inputName) => {
         const nameValue = inputName;
         console.log(nameValue.value);
     });
-    console.log("---------");
     ListOfNames = [];
     let nameCounter = 0;
     for (let i = 0; i < 4; i++) {
@@ -84,15 +96,27 @@ submitBtn?.addEventListener("click", () => {
     for (let i = nameCounter; i < allLis.length; i++) {
         allLis[i].remove();
     }
-    const numberOfIterations = nameCounter * 5 + Math.floor(Math.random() * 2);
-    for (let i = 0; i < numberOfIterations; i++) {
-        setTimeout(() => {
-            changePosition(nameCounter);
-        }, i * 300);
-    }
+    setTimeout(() => {
+        const numberOfIterations = nameCounter * 5 + Math.floor(Math.random() * 2);
+        for (let i = 0; i < numberOfIterations; i++) {
+            setTimeout(() => {
+                changePosition(nameCounter);
+            }, i * 300);
+        }
+    }, 750);
 });
 const glHf = document.querySelector(".gl-hf");
 glHf.addEventListener("click", () => {
     glHf.textContent = "Good Luck, Have Fun :)";
 });
+const addDemoNames = () => {
+    inputNames[0].value = "Ali";
+    inputNames[1].value = "Saba";
+    inputNames[2].value = "Amir";
+    inputNames[3].value = "Zahra";
+};
+demoNames.addEventListener("click", () => {
+    addDemoNames();
+});
+addDemoNames();
 //# sourceMappingURL=index.js.map
