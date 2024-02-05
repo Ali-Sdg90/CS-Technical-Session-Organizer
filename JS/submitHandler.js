@@ -4,7 +4,9 @@ const changePosition = (nameCounter) => {
     const allLis = orderList.querySelectorAll("li");
     console.log(allLis);
     const randomNumber = Math.floor(Math.random() * (nameCounter - 1));
-    orderList.appendChild(allLis[randomNumber]);
+    if (allLis.length) {
+        orderList.appendChild(allLis[randomNumber]);
+    }
 };
 const resetOrderList = () => {
     orderList.innerHTML = `
@@ -43,13 +45,9 @@ submitBtn.addEventListener("click", () => {
     if (orderList.querySelectorAll(".output-name").length !== 4) {
         resetOrderList();
     }
-    const outputNames = document.querySelectorAll(".output-name");
-    inputNames.forEach((inputName) => {
-        const nameValue = inputName;
-        console.log(nameValue.value);
-    });
     ListOfNames = [];
     let nameCounter = 0;
+    const outputNames = document.querySelectorAll(".output-name");
     for (let i = 0; i < 4; i++) {
         const inputName = inputNames[i];
         if (inputName.value) {
@@ -75,11 +73,16 @@ submitBtn.addEventListener("click", () => {
     }
     setTimeout(() => {
         const numberOfIterations = nameCounter * 5 + Math.floor(Math.random() * 2);
-        for (let i = 0; i < numberOfIterations; i++) {
-            setTimeout(() => {
-                changePosition(nameCounter);
-            }, i * 300);
+        if (nameCounter > 1) {
+            for (let i = 0; i < numberOfIterations; i++) {
+                setTimeout(() => {
+                    changePosition(nameCounter);
+                }, i * 300);
+            }
         }
     }, 750);
+    if (!ListOfNames.length) {
+        orderList.innerHTML = "Nothing to see here :)";
+    }
 });
 //# sourceMappingURL=submitHandler.js.map
