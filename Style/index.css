@@ -82,11 +82,26 @@ body {
   align-items: center;
   height: 100px;
 }
+.app-title .header-easter-egg {
+  margin: 0 5px;
+  cursor: default;
+  text-decoration: none;
+  color: white;
+}
+.app-title .ICARUS {
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.app-title .ICARUS:hover {
+  color: rgb(131, 135, 255);
+}
+.app-title .ICARUS:active {
+  color: rgb(101, 106, 255);
+}
 
 .meeting-info {
   border: 1px solid white;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 871px;
   padding: 15px;
   border-radius: 10px;
   background: #1c1c1c;

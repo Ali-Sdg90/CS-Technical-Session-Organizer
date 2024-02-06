@@ -7,11 +7,31 @@
     justify-content: center;
     align-items: center;
     height: 100px;
+
+    .header-easter-egg {
+        margin: 0 5px;
+        cursor: default;
+        text-decoration: none;
+        color: white;
+    }
+
+    .ICARUS {
+        cursor: pointer;
+        transition: color 0.15s;
+
+        &:hover {
+            color: rgb(131, 135, 255);
+        }
+
+        &:active {
+            color: rgb(101, 106, 255);
+        }
+    }
 }
 
 .meeting-info {
     border: 1px solid $borders-color;
-    width: fit-content;
+    width: 871px;
     padding: 15px;
     border-radius: 10px;
     background: $sections-bg;
